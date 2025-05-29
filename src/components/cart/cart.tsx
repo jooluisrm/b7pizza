@@ -10,14 +10,14 @@ export const Cart = () => {
 
     return (
         <Sheet open={cart.open} onOpenChange={cart.setOpen}>
-            <SheetContent side="right" className="p-4 flex flex-col justify-between">
+            <SheetContent side="right" className="p-4">
                 <SheetHeader>
                     <SheetTitle>Carrinho</SheetTitle>
                 </SheetHeader>
-                <div>
+                
                     {cart.items.length <= 0 && <CartEmpty />}
                     {cart.items.length >= 0 && <CartList />}
-                </div>
+                
 
             </SheetContent>
         </Sheet>
