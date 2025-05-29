@@ -22,7 +22,8 @@ model User {
     name     String
     email    String  @unique
     password String
-    orders    Order[]
+    token    String? 
+    orders   Order[]
 }
 
 model Order {
