@@ -1,6 +1,7 @@
 "use client"
 
 import { Product } from "@/generated/prisma";
+import { PizzaItem } from "./pizza-item";
 
 type Props = {
     pizzas: Product[];
@@ -8,8 +9,13 @@ type Props = {
 
 export const PizzaList = ({pizzas}: Props) => {
     return (
-        <div>
-            Total: {pizzas.length}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {pizzas.map((item: Product) => (
+                <PizzaItem 
+                    key={item.id}
+                    data={item}
+                />
+            ))}
         </div>
     );
 }
