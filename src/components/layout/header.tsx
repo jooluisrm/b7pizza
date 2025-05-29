@@ -1,8 +1,7 @@
-"use client"
-
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
+import { CartButton } from "../cart/cart-button";
 
 export const Header = () => {
     return (
@@ -14,9 +13,7 @@ export const Header = () => {
             </Link>
             <div className="flex gap-2">
                 <Button>Login / Cadastro</Button>
-                <Button>
-                    <ShoppingCart />
-                </Button>
+                <CartButton />
             </div>
         </header>
     );
