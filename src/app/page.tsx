@@ -1,6 +1,10 @@
 import { Header } from "@/components/layout/header";
+import { api } from "@/lib/axios";
 
 export default async function Page() {
+
+    //const pizzaReq = await api.get('/pizzas');
+
     return (
         <div>
             <Header />
