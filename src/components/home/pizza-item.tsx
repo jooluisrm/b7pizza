@@ -3,6 +3,7 @@
 import { Product } from "@/generated/prisma";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { decimalToMoney } from "@/lib/utils";
 
 type Props = {
     data: Product
@@ -27,7 +28,7 @@ export const PizzaItem = ({ data }: Props) => {
                 {data.name}
             </div>
             <div>
-                {data.price.toString()}
+                {decimalToMoney(data.price)}
             </div>
             <div className="truncate mb-3">
                 {data.ingredients}
