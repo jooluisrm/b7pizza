@@ -14,11 +14,8 @@ export const Cart = () => {
                 <SheetHeader>
                     <SheetTitle>Carrinho</SheetTitle>
                 </SheetHeader>
-                
                     {cart.items.length <= 0 && <CartEmpty />}
-                    {cart.items.length >= 0 && <CartList />}
-                
-
+                    {cart.items.length > 0 && <CartList />}
             </SheetContent>
         </Sheet>
     );

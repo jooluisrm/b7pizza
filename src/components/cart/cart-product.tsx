@@ -27,7 +27,7 @@ export const CartProduct = ({ data }: Props) => {
             cart.removeItem(data.productId);
         } else {
             cart.addItem({ productId: data.productId, quantity: -1 });
-            setQt(qt - 1)
+            setQt(qt - 1);
         }
     }
 

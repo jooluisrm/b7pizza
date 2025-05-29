@@ -1,4 +1,3 @@
-import { Cart } from "@/components/cart/cart";
 import { PizzaList } from "@/components/home/pizza-list";
 import { Header } from "@/components/layout/header";
 import { api } from "@/lib/axios";
