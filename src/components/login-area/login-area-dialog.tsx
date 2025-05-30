@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
+import { LoginAreaStepEmail } from "./login-area-step-email";
 
 type Steps = "EMAIL" | "SIGUP" | "SIGNIN";
 
@@ -13,6 +14,16 @@ export const LoginAreaDialog = () => {
     const auth = useAuth();
 
     const [step, setStep] = useState<Steps>("EMAIL");
+    const [emailFild, setEmailField] = useState('');
+
+    const handleStepEmail = (hasEmail: boolean, email: string) => {
+        setEmailField(email);
+        if(hasEmail) {
+            setStep('SIGNIN');
+        } else {
+            setStep("SIGUP");
+        }
+    }
 
     return (
         <Dialog
@@ -41,7 +52,9 @@ export const LoginAreaDialog = () => {
                 <div className="flex flex-col gap-4">
                     {step === "EMAIL" &&
                         <div>
-                            email
+                            <LoginAreaStepEmail 
+                                onValidate={handleStepEmail}
+                            />
                         </div>
                     }
                     {step === "SIGNIN" &&
