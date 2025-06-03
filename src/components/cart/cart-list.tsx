@@ -32,12 +32,14 @@ export const CartList = () => {
     }, [cart]);
 
     const handleFinish = async () => {
-        if(cart.items.length > 0) {
+        if (cart.items.length > 0) {
             const orderReq = await apiWithAuth.post('/order/new', {
                 cart: cart.items
             });
 
-            //pega os dados do pedido e faz alguma coisa
+            if (orderReq.status === 201) {
+                window.location.href = orderReq.data.url
+            }
         }
     }
 
