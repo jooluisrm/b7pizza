@@ -8,6 +8,7 @@ import { ArrowLeft } from "lucide-react";
 import { LoginAreaStepEmail } from "./login-area-step-email";
 import { LoginAreaStepSignup } from "./login-area-step-signup";
 import { getCookie } from "cookies-next/client";
+import { LoginAreaStepSignin } from "./login-area-step-signin";
 
 type Steps = "EMAIL" | "SIGUP" | "SIGNIN";
 
@@ -65,9 +66,9 @@ export const LoginAreaDialog = () => {
                         </div>
                     }
                     {step === "SIGNIN" &&
-                        <div>
-                            login
-                        </div>
+                        <LoginAreaStepSignin 
+                            email={emailFild}
+                        />
                     }
 
                     {step === "SIGUP" &&
