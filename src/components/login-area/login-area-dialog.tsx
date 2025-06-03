@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
 import { LoginAreaStepEmail } from "./login-area-step-email";
+import { LoginAreaStepSignup } from "./login-area-step-signup";
 
 type Steps = "EMAIL" | "SIGUP" | "SIGNIN";
 
@@ -64,9 +65,9 @@ export const LoginAreaDialog = () => {
                     }
 
                     {step === "SIGUP" &&
-                        <div>
-                            Cadastro
-                        </div>
+                        <LoginAreaStepSignup 
+                            email={emailFild}
+                        />
                     }
                 </div>
             </DialogContent>
