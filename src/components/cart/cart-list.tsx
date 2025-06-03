@@ -6,8 +6,10 @@ import { useProducts } from "@/stores/products";
 import { useEffect, useState } from "react";
 import { CartProduct } from "./cart-product";
 import { decimalToMoney } from "@/lib/utils";
+import { useAuth } from "@/stores/auth";
 
 export const CartList = () => {
+    const auth = useAuth();
 
     const cart = useCart();
     const products = useProducts();
@@ -45,7 +47,14 @@ export const CartList = () => {
                     <div className="font-bold">Total: {decimalToMoney(subtotal + shippingCont)}</div>
                 </div>
 
-                <Button className="w-full">Finalizar Compra</Button>
+                {auth.token &&
+                    <Button className="w-full bg-green-800 hover:bg-green-900">Finalizar Compra</Button>
+                }
+                {!auth.token &&
+                    <Button className="w-full" onClick={() => auth.setOpen(true)}>
+                        Login / Cadastro
+                    </Button>
+                }
             </div>
         </div>
     );
